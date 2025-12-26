@@ -1,0 +1,7 @@
+{
+  "name": "Копия 26.12.25",
+  "description": "Premium NFT Case Opening and Crafting platform on TON.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

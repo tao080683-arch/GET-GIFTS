@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GetGifts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a1a 100%);
+            margin: 0;
+            padding: 0;
+            color: white;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .iphone-frame {
+            max-width: 430px;
+            height: 932px;
+            margin: 20px auto;
+            border: 12px solid #222;
+            border-radius: 55px;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.5);
+        }
+        @media (max-width: 500px) {
+            .iphone-frame {
+                max-width: 100%;
+                height: 100vh;
+                margin: 0;
+                border: none;
+                border-radius: 0;
+            }
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 4px;
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+        /* Rarity Borders */
+        .border-common { border: 1.5px solid #9ca3af; box-shadow: inset 0 0 10px rgba(156, 163, 175, 0.2); }
+        .border-rare { border: 1.5px solid #3b82f6; box-shadow: inset 0 0 10px rgba(59, 130, 246, 0.3); }
+        .border-epic { border: 1.5px solid #a855f7; box-shadow: inset 0 0 10px rgba(168, 85, 247, 0.3); }
+        .border-legendary { border: 1.5px solid #f97316; box-shadow: inset 0 0 15px rgba(249, 115, 22, 0.4); }
+
+        .owned-glow { border-color: #3b82f6 !important; box-shadow: 0 0 15px rgba(59, 130, 246, 0.6) !important; }
+
+        @keyframes shine {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(100%); }
+        }
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+            animation: shine 2s infinite;
+        }
+        .pvp-spin-transition { transition: transform 5s cubic-bezier(0.15, 0, 0.15, 1); }
+        .no-transition { transition: none !important; }
+
+        /* Upgrade Gradients */
+        .upgrade-bg-win { background: radial-gradient(circle at center, rgba(34, 197, 94, 0.4) 0%, transparent 80%) !important; }
+        .upgrade-bg-loss { background: radial-gradient(circle at center, rgba(239, 68, 68, 0.4) 0%, transparent 80%) !important; }
+
+        .clip-path-needle { clip-path: polygon(50% 100%, 0% 0%, 100% 0%); }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
